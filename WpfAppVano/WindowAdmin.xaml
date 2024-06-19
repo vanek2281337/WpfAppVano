@@ -1,0 +1,45 @@
+﻿<Window x:Class="WpfAppVano.WindowAdmin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAppVano"
+        mc:Ignorable="d"
+        Title="WindowAdmin" Height="550" Width="800">
+    <Grid>
+
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="-150,0,0,0">
+            <TextBlock Text="Увольнение сотрудника" HorizontalAlignment="Center" Margin="0,10"/>
+            <TextBlock Text="ID сотрудника" HorizontalAlignment="Center" />
+            <TextBox Width="100" Margin="0,10,0,10" x:Name="TextBox_DeleteUser"/>
+            <Button Content="уволить" Click="Button_UpdateUserStatus"/>
+        </StackPanel>
+
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top">
+            <TextBlock Text="Назначить на смену" HorizontalAlignment="Center" />
+            <TextBlock Text="ID сотрудника" HorizontalAlignment="Center" Margin="0,10" />
+            <TextBox x:Name="TextBox_IdSmena" Width="100" />
+            <TextBlock Text="Дни недели/время" HorizontalAlignment="Center" Margin="0,10" />
+            <TextBox x:Name="TextBox_TimeSmena" Width="100" />
+            <Button Content="Назначить" Margin="10"  Width="150" Click="Button_Click_Smena"/>
+            <Button Content="Просмотр всех заказов" Click="Button_Click_Orders" Width="150" Margin="10,10"/>
+        </StackPanel>
+    <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top">
+            <TextBlock Text="Регистрация нового пользователя" HorizontalAlignment="Center" Margin="10,10"/>
+            <Button Content="Зарегистрировать" Width="150" Margin="0,10" Click="Button_Click_AddUser"/>
+        </StackPanel>
+        
+        <DataGrid x:Name="dg_product"  AutoGenerateColumns="False"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=Id}" Header="id"  Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=UserName}" Header="Имя" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=Password}" Header="Пароль" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=Status}" Header="Статус" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=Role}" Header="Должность" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=Smena}" Header="Смена" Width="*"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Назад" Margin="12" x:Name="BackButton" Click="BackButton_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+    </Grid>
+    
+</Window>

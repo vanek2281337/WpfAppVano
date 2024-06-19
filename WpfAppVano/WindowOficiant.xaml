@@ -1,0 +1,45 @@
+﻿<Window x:Class="WpfAppVano.WindowOficiant"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAppVano"
+        mc:Ignorable="d"
+        Title="WindowOficiant" Height="550" Width="800">
+    <Grid>
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10">
+            <TextBlock Text="Добавить заказ" HorizontalAlignment="Center" Margin="0,10"/>
+            <TextBlock Text="Стол" HorizontalAlignment="Center" />
+            <TextBox Width="100" Margin="0,10,0,10" x:Name="TextBox_Table"/>
+            <TextBlock Text="Кол-во клиентов" HorizontalAlignment="Center" />
+            <TextBox Width="100" Margin="0,10,0,10" x:Name="TextBox_Clients"/>
+            <TextBlock Text="Заказанные блюда, напитки" HorizontalAlignment="Center" />
+            <TextBox Width="100" Margin="0,10,0,10" x:Name="TextBox_FoodDrink" />
+            <Button Content="добавить" x:Name ="AddOrder"  Click="AddOrder_Click"/>
+          
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center" Margin="0,20">
+            <TextBlock Text="Обновить статус заказа" HorizontalAlignment="Center"/>
+            <TextBlock HorizontalAlignment="Center" Text="id Заказа"/>
+            <TextBox Width="100" Margin="0,10,0,10" x:Name="TextBox_IdOrder"/>
+            <StackPanel Orientation="Horizontal" Margin="10,0">
+                <RadioButton GroupName="Role" x:Name="StatusAccept" Checked="StatusAccept_Checked" Content="Принят" Margin="10,0" />
+                <RadioButton GroupName="Role" x:Name="StatusBuy" Checked="StatusBuy_Checked" Content="Оплачен" Margin="10,0" />
+            </StackPanel>
+            <Button Content="Обновить" Width="120" x:Name ="Button_UpdateOrderStatus" Click="Button_UpdateOrderStatus_Click" Margin="0,10"/>
+
+        </StackPanel>
+
+        <DataGrid x:Name="dg_orders"  AutoGenerateColumns="False"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,100,10,0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=Id}" Header="id заказа"  Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=Table}" Header="Столик" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=Clients}" Header="Кол-во клинтов" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=Food_Drink}" Header="Блюда/напитки" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=Status}" Header="Статус" Width="*"></DataGridTextColumn>
+               
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Назад" Margin="12" x:Name="BackButton" Click="BackButton_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+    </Grid>
+</Window>

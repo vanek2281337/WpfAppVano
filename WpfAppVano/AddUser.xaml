@@ -1,0 +1,38 @@
+﻿<Window x:Class="WpfAppVano.AddUser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAppVano"
+        mc:Ignorable="d"
+        Title="AddUser" Height="550" Width="800">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top">
+            <TextBlock Text="Регистрация нового пользователя" HorizontalAlignment="Center" Margin="10,10"/>
+            <TextBlock Text="Имя" HorizontalAlignment="Center"/>
+            <TextBox Width="100" Margin="10,10" x:Name="TextBox_RegName"/>
+            <TextBlock Text="Пароль" HorizontalAlignment="Center"/>
+            <TextBox Width="100" Margin="10,10" x:Name="TextBox_RegPassword"/>
+            
+            <StackPanel Orientation="Horizontal">
+                <RadioButton GroupName="Role" x:Name="SetRolePovar" Checked="SetRolePovar_Checked"  Content="Повар" />
+                <RadioButton GroupName="Role" x:Name="SetRoleOfficiant" Checked="SetRoleOfficiant_Checked" Content="Официант" />
+                <RadioButton GroupName="Role" x:Name="SetRoleAdmin" Checked="SetRoleAdmin_Checked" Content="Админ" />
+            </StackPanel>
+            <Button Content="Добавить" Width="150" Click="Button_RegUser"/>
+        </StackPanel>
+        
+        
+        <DataGrid x:Name="dg_product"  AutoGenerateColumns="False"  VerticalAlignment="Center"  Margin="10,10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=Id}" Header="id"  Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=UserName}" Header="Имя" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=Password}" Header="Пароль" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=Status}" Header="Статус" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=Role}" Header="Должность" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=Smena}" Header="Смена" Width="*"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Назад" Margin="12" x:Name="BackButton" Click="BackButton_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+    </Grid>
+</Window>
